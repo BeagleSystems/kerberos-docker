@@ -17,7 +17,7 @@ case "$command" in
       cleanup
       ;;
   "create")
-      create $2 $3 $4 $5
+      create $2 $3 $4 $5 $6
       ;;
   "start")
       start

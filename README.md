@@ -58,8 +58,18 @@ The tool we've created is a simple bash script which we called **dockeros**, and
 
 For example, To run docker for camera5 and camera6 on the same host machine:
 
-    ./dockeros.sh create camera5 camera5 1080 8890
-    ./dockeros.sh create camera6 camera6 1081 8891
+Prepare the share folder to save logs, capture and webconfig
+
+```
+mkdir -p /mnt/hdd/kerberos/logs
+mkdir -p /mnt/hdd/kerberos/capture
+mkdir -p /mnt/hdd/kerberos/webconfig
+```
+
+```
+    ./dockeros.sh create camera5 camera5 1080 8890 /mnt/hdd/kerberos
+    ./dockeros.sh create camera6 camera6 1081 8891 /mnt/hdd/kerberos
+```
 
 sh script will automatically use the environment config in ```/environments/camera*/```
 

@@ -12,6 +12,7 @@ function create {
     environment=$2
     webport=$3
     streamport=$4
+    volume=$5
 
     # Validation of parameters
     while [[ $name == '' ]] || [ "$(containerExists kerberos-$name)" -eq "1" ] # While containername is valid or empty...
@@ -40,7 +41,13 @@ function create {
         read -p "Enter livestreaming port: " streamport
     done
 
-    command="docker run --name kerberos-${name} --restart unless-stopped -p ${webport}:80 -p ${streamport}:8889 --mount type=bind,src=${BASEDIR}/environments/${environment},dst=/etc/opt/kerberosio/config -d kerberos/kerberos"
+    while [[ $volume == '' ]] || [[ ! -d $volume ]] # While environment is valid or empty...
+    do
+        echo "Specify the volume path for capture, logs."
+        read -p "Enter environment: " environment
+    done
+
+    command="docker run --name kerberos-${name} --restart unless-stopped -p ${webport}:80 -p ${streamport}:8889 --mount type=bind,src=${BASEDIR}/environments/${environment},dst=/etc/opt/kerberosio/config -v ${volume}/capture:/etc/opt/kerberosio/capture -v ${volume}/logs:/etc/opt/kerberosio/logs -v ${volume}/webconfig:/var/www/web/config -d kerberos/kerberos"
     output=$($command 2>&1)
 
     if [[ $output == '' ]] || [[ $output =~ "Error" ]]
