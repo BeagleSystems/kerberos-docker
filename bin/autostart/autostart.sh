@@ -1,1 +1,1 @@
-
+docker run --name kerberos-camera0 --restart unless-stopped -p 1080:80 -p 8890:8889 --mount type=bind,src=/home/beagle/Development/beaglehouse/addendums/BeagleHouseNVR/kerberos-docker/bin/environments/camera0,dst=/etc/opt/kerberosio/config -d kerberos/kerberos

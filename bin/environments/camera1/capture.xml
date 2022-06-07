@@ -2,7 +2,7 @@
 <captures>
 
     <IPCamera>
-        <url type="text">rtsp://admin:888888@192.168.0.13/tcp/av0_1</url>
+        <url type="text">rtsp://admin:8Z9GzL2rYVUNkWa@192.168.42.54:554/H264/ch1/sub/av_stream</url>
         <frameWidth type="number">640</frameWidth>
         <frameHeight type="number">480</frameHeight>
         <delay type="number">500</delay>

@@ -44,6 +44,25 @@ The tool we've created is a simple bash script which we called **dockeros**, and
     cd docker/bin
     ./dockeros.sh {command}
 
+### Table of Device No and IPs of all cameras
+
+| DeviceNo | Installed House | View | IP Address |
+| --- | :--- | :--- | ---: |
+| 0 | Test Platform in office | inner | 192.168.42.55 | 
+| 1 | Beagle House WestNetz | inner | 192.168.42.54 | 
+| 2 | Beagle House WestNetz | outer | 192.168.42.53 |
+| 3 | Beagle House Uelzen | outer | 192.168.42.52 |
+| 4 | Beagle House Uelzen | inner | 192.168.42.51 |
+| 5 | Beagle House Develop | outer | 192.168.42.50 |
+| 6 | Beagle House Develop | outer | 192.168.42.49 |
+
+For example, To run docker for camera5 and camera6 on the same host machine:
+
+    ./dockeros.sh create camera5 camera5 1080 8890
+    ./dockeros.sh create camera6 camera6 1081 8891
+
+sh script will automatically use the environment config in ```/environments/camera*/```
+
 ### Commands
 
 List all kerberos.io containers which are created.

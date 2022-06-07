@@ -5,8 +5,8 @@
 	    <region>
 		    <x1 type="number">0</x1>
 		    <y1 type="number">0</y1>
-		    <x2 type="number">800</x2>
-		    <y2 type="number">600</y2>
+		    <x2 type="number">640</x2>
+		    <y2 type="number">480</y2>
 		 </region>
 	</Rectangle>
 
